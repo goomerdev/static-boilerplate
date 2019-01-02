@@ -1,10 +1,10 @@
-doctype html
-html(lang="pt-br" dir="ltr")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    title Goomer Styleguide
-  body
-    main.main
-      .goomerzito-container
-        img.goomerzito(src="img/goomerzito.jpg")
+extends partials/templates/layout.pug
+
+block config
+  - var title = 'Goomer Styleguide';
+  
+block body
+  main.main
+    h1 Goomer Styleguide
+    .goomerzito-container
+      img.goomerzito(src="img/goomerzito.jpg")

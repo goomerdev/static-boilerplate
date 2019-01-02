@@ -1,18 +1,21 @@
 // webpack.config.js
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const pages = fs.readdirSync(path.resolve(__dirname, 'src'))
+                .filter(fileName => fileName.endsWith('.pug'));
+
 const pug = {
   test: /\.pug$/,
-  use: [{
-    loader: 'html-loader?minimize=false'
-  },
-  {
-    loader: 'pug-html-loader',
-    options: {
-      pretty: true
+  use: [
+    'html-loader?minimize=false',
+    {
+      loader: 'pug-html-loader',
+      options: {
+        pretty: true
     }
   }]
 }
@@ -58,10 +61,14 @@ const config = {
     rules: [ pug, scss, js, img ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: "src/index.pug",
-      filename: "index.html"
-    }),
+    ...pages.map(page => new HtmlWebPackPlugin({
+      template: `src/${page}`,
+      filename: `${page.split('.')[0]}.html`
+    })),
+    // new HtmlWebPackPlugin({
+    //   template: "src/index.pug",
+    //   filename: "index.html"
+    // }),
     new MiniCssExtractPlugin({
       filename: 'css/styles.css',
       chunkFilename: '[id].css'

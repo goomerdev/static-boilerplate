@@ -1,0 +1,12 @@
+doctype html
+
+block config
+  include ../config.pug
+
+html(lang="pt-br" dir="ltr")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title #{title}
+  body
+    block body
