@@ -1,0 +1,19 @@
+body {
+  color: teal;
+}
+
+.goomerzito-container {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+
+  .goomerzito {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
