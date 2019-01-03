@@ -8,7 +8,7 @@ A boilerplate for building static pages using Webpack, Pug and SCSS.
 + [Usage](#usage)
 + [Directory Structure](#directory-structure)
 
-+ ## Requisites
+## Requisites
 
 + [Git](https://git-scm.com/downloads/)
 + [Node.js - LTS](https://nodejs.org/en/download/)
